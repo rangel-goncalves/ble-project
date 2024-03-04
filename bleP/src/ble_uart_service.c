@@ -125,4 +125,3 @@ int ble_uart_service_transmit(const uint8_t *buffer, size_t len)
     else
         return -1;
 }
-
