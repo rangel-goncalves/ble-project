@@ -120,7 +120,11 @@ void gatt_subscribe(void){
 	WFLAG(subscribed_f);
 }
 
-
+/*
+    Inicia o processo de descoberta de serviços e características disponíveis no dispositivo periférico. 
+    A função configura os parâmetros necessários para a descoberta e chama a função 
+    bt_gatt_discover() para iniciar o processo.
+*/
 void gatt_discover(void){
 	printk("Descobrindo servicos e caracteristicas\n");
 	static struct bt_gatt_discover_params discover_params;
@@ -140,7 +144,11 @@ void gatt_discover(void){
     }
 }
 
-
+/*
+    Callback chamado durante a descoberta de serviços e características. Ele processa os atributos encontrados, 
+    identificando serviços e características de interesse (por meio de comparação de UUIDs)
+    e armazenando handles relevantes para uso posterior.
+*/
 uint8_t discover(struct bt_conn *conn, const struct bt_gatt_attr *attr, struct bt_gatt_discover_params *params){
     int err;
 
